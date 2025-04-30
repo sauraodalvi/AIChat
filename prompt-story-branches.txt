@@ -1,0 +1,12 @@
+Create an interactive story branching system that:
+
+1. Periodically offers 2-3 possible narrative directions
+2. Presents these as clickable options to the user
+3. Incorporates the selected option into the ongoing conversation
+4. Triggers appropriate character reactions to the new story direction
+
+Key files to modify:
+- velora\src\components\ChatRoom.jsx - Add UI for story branches
+- velora\src\utils\aiGenerationUtils.js - Add function to generate contextual story options
+
+The branches should feel natural within the current conversation context and scenario type (adventure, mystery, etc.). When a user selects an option, it should be introduced as a system message that all characters can react to.

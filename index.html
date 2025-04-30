@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velora - Your portal to living conversations</title>
+    <link rel="stylesheet" href="https://nsui.irung.me/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1 class="logo">Velora</h1>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn">
+                    <span class="light-icon">☀️</span>
+                    <span class="dark-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <main id="app">
+            <!-- Landing Page Content -->
+            <section id="landing-page" class="page active">
+                <div class="welcome-container">
+                    <h2>Your portal to living conversations, fantasy characters, and untamed group chats</h2>
+                    <p class="tagline">Instant Connection, Infinite Worlds.</p>
+
+                    <div class="main-buttons">
+                        <button id="select-character-btn" class="btn btn-primary">Select Character</button>
+                        <button id="create-scenario-btn" class="btn btn-secondary">Create Custom Scenario</button>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button id="random-surprise-btn" class="btn btn-small">Random Surprise</button>
+                        <button id="upload-chat-btn" class="btn btn-small">Upload Saved Chat</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character Selection Page -->
+            <section id="character-selection-page" class="page">
+                <h2>Select Your Characters</h2>
+                <div class="filter-controls">
+                    <input type="text" id="character-search" placeholder="Search characters...">
+                    <select id="character-filter">
+                        <option value="all">All Types</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="scifi">Sci-Fi</option>
+                        <option value="historical">Historical</option>
+                        <option value="modern">Modern</option>
+                    </select>
+                </div>
+                <div id="characters-grid" class="characters-grid">
+                    <!-- Characters will be loaded here dynamically -->
+                </div>
+                <div class="action-buttons">
+                    <button id="random-character-btn" class="btn">Random Character</button>
+                    <button id="start-chat-btn" class="btn btn-primary" disabled>Start Chat</button>
+                    <button id="back-to-landing-btn" class="btn btn-secondary">Back</button>
+                </div>
+            </section>
+
+            <!-- Chat Room Page -->
+            <section id="chat-room-page" class="page">
+                <div class="chat-header">
+                    <h2 id="chat-room-name">Chat Room</h2>
+                    <div class="chat-controls">
+                        <button id="add-character-btn" class="btn btn-small">Add Character</button>
+                        <button id="save-chat-btn" class="btn btn-small">Save Chat</button>
+                        <button id="leave-chat-btn" class="btn btn-small">Leave Chat</button>
+                    </div>
+                </div>
+                <div class="chat-container">
+                    <div id="chat-messages" class="chat-messages">
+                        <!-- Messages will appear here -->
+                    </div>
+                    <div class="chat-input-container">
+                        <textarea id="chat-input" placeholder="Type your message..."></textarea>
+                        <button id="send-message-btn" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+                <div class="active-characters">
+                    <h3>Active Characters</h3>
+                    <div id="active-characters-list" class="active-characters-list">
+                        <!-- Active characters will be listed here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Custom Scenario Page -->
+            <section id="custom-scenario-page" class="page">
+                <h2>Create Custom Scenario</h2>
+                <form id="scenario-form">
+                    <div class="form-group">
+                        <label for="room-name">Room Name</label>
+                        <input type="text" id="room-name" required placeholder="Enter a name for your chat room">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Add Characters</label>
+                        <div id="selected-characters" class="selected-characters">
+                            <!-- Selected characters will appear here -->
+                        </div>
+                        <button type="button" id="add-custom-character-btn" class="btn btn-small">Add Character</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="opening-prompt">Opening Prompt (Optional)</label>
+                        <textarea id="opening-prompt" placeholder="Set the scene for your characters..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="video-url">Video URL (Optional)</label>
+                        <input type="url" id="video-url" placeholder="Paste a video link to theme your chat">
+                        <button type="button" id="generate-theme-btn" class="btn btn-small">Generate Theme</button>
+                        <div id="theme-suggestion" class="theme-suggestion"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Create Chat Room</button>
+                        <button type="button" id="back-from-scenario-btn" class="btn btn-secondary">Back</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Character Creator Modal -->
+            <div id="character-creator-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Create Custom Character</h2>
+                    <form id="character-form">
+                        <div class="form-group">
+                            <label for="character-name">Name</label>
+                            <input type="text" id="character-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="character-description">Description</label>
+                            <textarea id="character-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="character-mood">Mood</label>
+                            <input type="text" id="character-mood" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="character-opening-line">Opening Line</label>
+                            <textarea id="character-opening-line" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="character-type">Type</label>
+                            <select id="character-type" required>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="scifi">Sci-Fi</option>
+                                <option value="historical">Historical</option>
+                                <option value="modern">Modern</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Character</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- File Upload Modal -->
+            <div id="file-upload-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Upload Saved Chat</h2>
+                    <form id="upload-form">
+                        <div class="form-group">
+                            <label for="chat-file">Select Chat File (JSON)</label>
+                            <input type="file" id="chat-file" accept=".json">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Load Chat</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Velora - No login required, just start chatting!</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/characters.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/scenarios.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
