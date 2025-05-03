@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "buildCommand": "cd velora && npm install && npm run build",
+  "outputDirectory": "velora/dist",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
