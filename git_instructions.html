@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Push Instructions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Instructions for Pushing C:\git_projects\chat to GitHub</h1>
+    
+    <p>Follow these steps to push your code to GitHub:</p>
+    
+    <div class="step">
+        <h2>Step 1: Open Command Prompt</h2>
+        <p>Open a Command Prompt window by pressing <code>Win + R</code>, typing <code>cmd</code>, and pressing Enter.</p>
+    </div>
+    
+    <div class="step">
+        <h2>Step 2: Navigate to your project directory</h2>
+        <pre>cd C:\git_projects\chat</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 3: Initialize Git repository</h2>
+        <pre>git init</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 4: Add all files to Git</h2>
+        <pre>git add .</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 5: Commit your changes</h2>
+        <pre>git commit -m "Initial commit"</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 6: Add the remote repository</h2>
+        <pre>git remote add origin git@github.com:sauraodalvi/VeloraChat.git</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 7: Rename the branch to main</h2>
+        <pre>git branch -M main</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 8: Push to GitHub</h2>
+        <pre>git push -u origin main</pre>
+    </div>
+    
+    <p>If you encounter any issues with SSH authentication, you might need to use HTTPS instead:</p>
+    <pre>git remote add origin https://github.com/sauraodalvi/VeloraChat.git</pre>
+    
+    <p>Or if you've already added the remote, you can change it:</p>
+    <pre>git remote set-url origin https://github.com/sauraodalvi/VeloraChat.git</pre>
+</body>
+</html>

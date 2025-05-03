@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velora - Your portal to living conversations</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/tailark.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://tailark.com/styles.css">
     <link rel="stylesheet" href="css/chat-styles.css">
     <link rel="stylesheet" href="css/character-styles.css">
     <link id="theme-stylesheet" rel="stylesheet" href="css/dark-mode.css" disabled>
@@ -502,6 +501,70 @@
         .remove-character:hover {
             color: var(--destructive);
         }
+
+        /* Featured Scenarios */
+        .featured-scenarios {
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .featured-scenarios h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .scenario-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .scenario-card {
+            background-color: var(--card-background);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px var(--shadow-color);
+        }
+
+        .scenario-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .scenario-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .scenario-preview {
+            background-color: var(--background-color);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-message {
+            margin-bottom: 0.75rem;
+        }
+
+        .preview-message:last-child {
+            margin-bottom: 0;
+        }
+
+        .character-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
@@ -531,6 +594,25 @@
                     <div class="quick-actions">
                         <button id="random-surprise-btn" class="btn btn-small">Random Surprise</button>
                         <button id="upload-chat-btn" class="btn btn-small">Upload Saved Chat</button>
+                    </div>
+
+                    <div class="featured-scenarios">
+                        <h3>Featured Scenarios</h3>
+                        <div class="scenario-cards">
+                            <div class="scenario-card" id="avengers-scenario">
+                                <h4>Avengers: Alien Invasion</h4>
+                                <p>Join the Avengers as Thor to battle an alien invasion threatening Earth.</p>
+                                <div class="scenario-preview">
+                                    <div class="preview-message">
+                                        <span class="character-name">Iron Man:</span> Thor! We've got hostiles incoming. Looks like another alien invasion.
+                                    </div>
+                                    <div class="preview-message">
+                                        <span class="character-name">Captain America:</span> Team, we need to coordinate our defense. Thor, can you provide aerial support?
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary start-scenario-btn" data-scenario="avengers">Start Adventure</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
