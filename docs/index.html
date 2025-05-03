@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velora - Your portal to living conversations</title>
+    <style>
+        :root {
+            --primary-color: #6d28d9;
+            --primary-hover: #5b21b6;
+            --secondary-color: #4f46e5;
+            --secondary-hover: #4338ca;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --background-color: #ffffff;
+            --card-background: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --radius: 0.5rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        
+        .main-content {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .button-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .button-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .button-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .button-secondary:hover {
+            background-color: var(--secondary-hover);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Velora</h1>
+            <p class="tagline">Your portal to living conversations, fantasy characters, and untamed group chats</p>
+        </header>
+        
+        <div class="main-content">
+            <h2>Welcome to Velora</h2>
+            <p>Velora is a completely autonomous, login-free, character-driven chat world where you can:</p>
+            <ul>
+                <li>Instantly select characters and start talking</li>
+                <li>Create custom fantasy, deep talk, or random chat scenarios</li>
+                <li>Talk in many-to-many group chats (not boring 1-1)</li>
+                <li>Save chats locally (as JSON) and upload them later to resume conversations</li>
+                <li>Paste a video link to theme your chat room based on the video's vibe</li>
+            </ul>
+            
+            <p>The full version of Velora is currently being deployed. Please check back soon!</p>
+            
+            <div class="button-container">
+                <a href="https://ai-chat-eight-red.vercel.app/" class="button button-primary">Visit Vercel Deployment</a>
+                <a href="https://github.com/sauraodalvi/AIChat" class="button button-secondary">View on GitHub</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Velora - No login required, just start chatting!</p>
+        </footer>
+    </div>
+</body>
+</html>
