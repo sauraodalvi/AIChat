@@ -6,40 +6,58 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+
+      - name: Debug Repository Structure
+        run: |
+          echo "Current directory structure:"
+          ls -la
+          echo "Checking if velora directory exists:"
+          if [ -d "velora" ]; then
+            echo "Velora directory exists"
+            ls -la velora
+          else
+            echo "Velora directory does not exist"
+          fi
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: './velora/package-lock.json'
-      - name: Install dependencies
-        run: cd velora && npm ci
-      - name: Build
-        run: cd velora && npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './velora/dist'
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Check for package.json
+        run: |
+          if [ -f "package.json" ]; then
+            echo "Root package.json exists"
+            cat package.json
+          else
+            echo "Root package.json does not exist"
+          fi
+
+          if [ -f "velora/package.json" ]; then
+            echo "Velora package.json exists"
+            cat velora/package.json
+          else
+            echo "Velora package.json does not exist"
+          fi
+
+      - name: Deploy Static HTML Version
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
+          branch: gh-pages
+          clean: false
+          clean-exclude: |
+            .nojekyll
+            CNAME
